@@ -1,0 +1,33 @@
+int backspaceCompare(char* s, char* t) {
+    char ss[1000]; 
+    char tt[1000];
+    int i, j;
+
+  
+    i = 0;
+    for (int k = 0; s[k] != '\0'; ++k) {
+        if (s[k] == '#') {
+            if (i > 0) {
+                --i;
+            }
+            
+        } else {
+            ss[i++] = s[k];
+        }
+    }
+    ss[i] = '\0';
+
+     j = 0;
+    for (int k = 0; t[k] != '\0'; ++k) {
+        if (t[k] == '#') {
+            if (j > 0) {
+                --j;
+            }
+        } else {
+            tt[j++] = t[k];
+        }
+    }
+    tt[j] = '\0';
+
+    return strcmp(ss, tt) == 0;
+}
